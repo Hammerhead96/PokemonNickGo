@@ -15,6 +15,7 @@
 		63146803226FC06C007A2DBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63146801226FC06C007A2DBB /* LaunchScreen.storyboard */; };
 		6314680D226FCFF5007A2DBB /* PokedexVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6314680C226FCFF5007A2DBB /* PokedexVC.swift */; };
 		6314680F226FD300007A2DBB /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6314680E226FD300007A2DBB /* CoreDataHelper.swift */; };
+		63146811227011EA007A2DBB /* PokeAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63146810227011EA007A2DBB /* PokeAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		63146804226FC06C007A2DBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6314680C226FCFF5007A2DBB /* PokedexVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexVC.swift; sourceTree = "<group>"; };
 		6314680E226FD300007A2DBB /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		63146810227011EA007A2DBB /* PokeAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				631467F7226FC06A007A2DBB /* MapVC.swift */,
 				6314680C226FCFF5007A2DBB /* PokedexVC.swift */,
 				6314680E226FD300007A2DBB /* CoreDataHelper.swift */,
+				63146810227011EA007A2DBB /* PokeAnnotation.swift */,
 				631467F9226FC06A007A2DBB /* Main.storyboard */,
 				631467FF226FC06C007A2DBB /* Assets.xcassets */,
 				63146801226FC06C007A2DBB /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6314680F226FD300007A2DBB /* CoreDataHelper.swift in Sources */,
+				63146811227011EA007A2DBB /* PokeAnnotation.swift in Sources */,
 				631467F8226FC06A007A2DBB /* MapVC.swift in Sources */,
 				631467F6226FC06A007A2DBB /* AppDelegate.swift in Sources */,
 				631467FE226FC06A007A2DBB /* PokemonNickGo.xcdatamodeld in Sources */,
