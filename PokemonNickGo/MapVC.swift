@@ -108,10 +108,37 @@ class MapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
             }
         }
     }
+    static func createLocalUrl(forImageNamed name: String) -> URL? {
+        
+        let fileManager = FileManager.default
+        let cacheDirectory = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+        let url = cacheDirectory.appendingPathComponent("\(name).png")
+        let path = url.path
+        
+        guard fileManager.fileExists(atPath: path) else {
+            guard
+                let image = UIImage(named: name),
+                let data = image.pngData() //let data = UIImagePNGRepresentation(image), XCode gave me the fix for this instantly when I clicked the eror then it said what changed and I clicked, "Fix", unsure what happened with your version of XCode earlier.
+                else { return nil }
+            
+            fileManager.createFile(atPath: path, contents: data, attributes: nil)
+            return url
+        }
+        
+        return url
+    }
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let annoView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
         if annotation is MKUserLocation {
-            annoView.image = UIImage(named: "player")
+            // NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:@"myurl"]];
+            // productImage.image = [NSImage imageWithData:imageData]; Reference lines I used from Objective C.
+            //            annoView.image = UIImage(named: "player") Your old line, should probably delete this along with above lines
+            let imgData = try! Data(contentsOf: MapVC.createLocalUrl(forImageNamed: "player")!); //grab out of the image bundle (which apparently is just a cache file underneath-the-hood. A cache file is really just a collection (dictionary, array, set, or something) that stays in memory.
+            //https://stackoverflow.com/questions/21769092/can-i-get-a-nsurl-from-an-xcassets-bundle
+            //https://stackoverflow.com/questions/316236/difference-between-uiimage-imagenamed-and-uiimage-imagewithdata Random things to know about image loading and cache.. read all of the answers, esp the older ones that mention iOS caches and eventually crashes from not releasing. Writing your own image cache is very wise for grpahics-intensive applications.
+            let playerImage = UIImage(data: imgData);
+            annoView.image = playerImage;
+            
             var frame = annoView.frame
             frame.size.height = 30
             frame.size.width = 30
