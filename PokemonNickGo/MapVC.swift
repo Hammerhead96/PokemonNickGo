@@ -25,7 +25,6 @@ class MapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     var pokemons : [Pokemon] = []
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         pokemons = getAllPokemon()
@@ -35,8 +34,8 @@ class MapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         } else {
             manager.requestWhenInUseAuthorization()
         }
-        
     } // end of viewDidLoad()
+    
     func random() -> Double {
         return (Double(arc4random_uniform(200)) - 100.0) / 50000.0
     }
@@ -45,6 +44,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         let randomPokemon = self.pokemons[randomIndex]
         return randomPokemon
     }
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
             setUp()
@@ -64,6 +64,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
             }
         }
     }
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         mapView.deselectAnnotation(view.annotation, animated: true)
         if view.annotation is MKUserLocation {
@@ -125,6 +126,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                     annoView.frame = frame } } }
         return annoView
     }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if updateCount < 3 {
             if let center = manager.location?.coordinate {
@@ -136,7 +138,6 @@ class MapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
             manager.stopUpdatingLocation()
         }
     }
-    
     @IBAction func compassTouched(_ sender: Any) {
         if let center = manager.location?.coordinate {
             let region = MKCoordinateRegion(center: center, latitudinalMeters: 300, longitudinalMeters: 300)

@@ -31,6 +31,7 @@ class PokedexVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         uncaughtPokemons = getUnCaughtPokemon()
         caughtPokemons = getCaughtPokemon()
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -63,10 +64,7 @@ class PokedexVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-
     @IBAction func returnTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-
 }
