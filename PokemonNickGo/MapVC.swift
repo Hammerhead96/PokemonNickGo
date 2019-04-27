@@ -4,8 +4,6 @@
 /*
  Icons made by [https://www.flaticon.com/authors/roundicons-freebies] from www.flaticon.com
  E.g.: Icon made by Roundicons Freebies from www.flaticon.com
- 
- 
  <div>Icons made by <a href="https://www.flaticon.com/authors/roundicons-freebies" title="Roundicons Freebies">Roundicons Freebies</a> from <a href="https://www.flaticon.com/"
  title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"
  title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
@@ -18,6 +16,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     var manager = CLLocationManager()
@@ -29,6 +28,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         super.viewDidLoad()
         pokemons = getAllPokemon()
         manager.delegate = self
+        //manager.desiredAccuracy = kCLLocationAccuracyBest
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             setUp()
         } else {
@@ -52,6 +52,12 @@ class MapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     }
     func setUp() {
         mapView.showsUserLocation = true
+//        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+//        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+//        let region = MKCoordinateRegion(center: locValue, span: span)
+//        mapView.setRegion(region, animated: true)
+//        print("about to startUpdatingLocation()")
+//      I cannot figure out how to make this work :(
         manager.startUpdatingLocation()
         mapView.delegate = self
         Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in

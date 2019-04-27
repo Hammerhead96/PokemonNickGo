@@ -30,7 +30,14 @@ func addAllPokemon() {
     createPokemon(name: "Abra", imageName: "abra")
     createPokemon(name: "Charmander", imageName: "charmander")
     createPokemon(name: "Caterpie", imageName: "caterpie")
-    
+    createPokemon(name: "Bellsprout", imageName: "bellsprout")
+    createPokemon(name: "Dratini", imageName: "dratini")
+    createPokemon(name: "Eevee", imageName: "eevee")
+    createPokemon(name: "Jigglypuff", imageName: "jigglypuff")
+    createPokemon(name: "Rattata", imageName: "rattata")
+    createPokemon(name: "Squirtle", imageName: "squirtle")
+    createPokemon(name: "Venonat", imageName: "venonat")
+    createPokemon(name: "Weedle", imageName: "weedle")
 }
 
 func createPokemon(name:String, imageName:String) {
